@@ -1,0 +1,32 @@
+<table class="table">
+	<tr>
+		<th>Band</th>
+		<th>Best Album</th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="band in bands">
+		<td>
+			<input ng-model="band.name" ng-disabled="!band.edit" />
+		</td>
+		<td>
+			<input ng-model="band.bestAlbum" ng-disabled="!band.edit" />
+		</td>
+		<td>
+			<div class="action-buttons-container">
+				<span ng-hide="band.edit">
+					<button class="btn btn-default" ng-click="editBand($index);">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
+					<button class="btn btn-default" ng-click="removeBand($index);">
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+				<span ng-show="band.edit">
+					<button class="btn btn-default" ng-click="saveBand($index);">
+						<span class="glyphicon glyphicon-ok"></span>
+					</button>
+				</span>
+			</div>
+		</td>
+	</tr>
+</table>
